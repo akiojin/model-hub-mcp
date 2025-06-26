@@ -9,7 +9,7 @@
 
 2. パッケージ名の重複確認
    ```bash
-   npm view model-hub-mcp
+   npm view @akiojin/model-hub-mcp
    ```
    （404エラーが返れば、その名前は利用可能）
 
@@ -28,8 +28,9 @@
 
 3. 公開
    ```bash
-   npm publish
+   npm publish --access public
    ```
+   （スコープ付きパッケージは初回公開時に`--access public`が必要）
 
 ## 更新時
 
@@ -51,8 +52,8 @@
 
 ```bash
 # パッケージ情報を確認
-npm view model-hub-mcp
+npm view @akiojin/model-hub-mcp
 
 # npxで動作確認
-npx model-hub-mcp
+npx @akiojin/model-hub-mcp
 ```

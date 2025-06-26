@@ -1,100 +1,102 @@
 # model-hub-mcp
 
-OpenAI、Anthropic、GoogleのAIモデル情報を取得できるMCP（Model Context Protocol）サーバーです。
+[日本語版 README](./README.ja.md)
 
-## 機能
+An MCP (Model Context Protocol) server that fetches AI model information from OpenAI, Anthropic, and Google.
 
-- **マルチプロバイダー対応**: OpenAI、Anthropic、Google AIの3つのプロバイダーに対応
-- **モデル一覧取得**: 各プロバイダーから利用可能なモデルの一覧を取得
-- **モデル詳細取得**: 特定のモデルの詳細情報を取得
-- **統合取得**: すべての設定済みプロバイダーからモデル情報を一括取得
+## Features
 
-## クイックスタート（npx）
+- **Multi-provider Support**: Supports three providers - OpenAI, Anthropic, and Google AI
+- **List Models**: Retrieve a list of available models from each provider
+- **Get Model Details**: Fetch detailed information about specific models
+- **Unified Retrieval**: Batch fetch model information from all configured providers
 
-```bash
-# 環境変数を設定して実行
-OPENAI_API_KEY=your_key npx model-hub-mcp
-```
-
-注意: 初回実行時はnpmからパッケージをダウンロードします。
-
-## インストール
-
-### グローバルインストール
+## Quick Start (npx)
 
 ```bash
-npm install -g model-hub-mcp
+# Run with environment variables
+OPENAI_API_KEY=your_key npx @akiojin/model-hub-mcp
 ```
 
-### ローカルインストール
+Note: The package will be downloaded from npm on first run.
+
+## Installation
+
+### Global Installation
 
 ```bash
-npm install model-hub-mcp
+npm install -g @akiojin/model-hub-mcp
 ```
 
-## 設定
+### Local Installation
 
-1. `.env.example`を`.env`にコピーします：
+```bash
+npm install @akiojin/model-hub-mcp
+```
+
+## Configuration
+
+1. Copy `.env.example` to `.env`:
 ```bash
 cp .env.example .env
 ```
 
-2. `.env`ファイルに各プロバイダーのAPIキーを設定します：
+2. Set API keys for each provider in the `.env` file:
 ```
 OPENAI_API_KEY=your_openai_api_key_here
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
 GOOGLE_API_KEY=your_google_api_key_here
 ```
 
-注意: 使用しないプロバイダーのAPIキーは空のままで構いません。
+Note: You can leave API keys empty for providers you don't plan to use.
 
-## ビルド
+## Build
 
-TypeScriptコードをコンパイルします：
+Compile TypeScript code:
 ```bash
 npm run build
 ```
 
-## 使用方法
+## Usage
 
-MCPサーバーとして起動：
+Start as MCP server:
 ```bash
 npm start
 ```
 
-開発モード（TypeScriptを直接実行）：
+Development mode (run TypeScript directly):
 ```bash
 npm run dev
 ```
 
-## 利用可能なツール
+## Available Tools
 
 ### list_models
-特定のプロバイダーから利用可能なモデルの一覧を取得します。
+Retrieve a list of available models from a specific provider.
 
-パラメータ:
+Parameters:
 - `provider`: "openai" | "anthropic" | "google"
 
 ### get_model
-特定のモデルの詳細情報を取得します。
+Fetch detailed information about a specific model.
 
-パラメータ:
+Parameters:
 - `provider`: "openai" | "anthropic" | "google"
-- `model_id`: モデルID（例: "gpt-4", "claude-3-opus", "gemini-pro"）
+- `model_id`: Model ID (e.g., "gpt-4", "claude-3-opus", "gemini-pro")
 
 ### list_all_models
-設定済みのすべてのプロバイダーからモデル情報を一括取得します。
+Batch fetch model information from all configured providers.
 
-## MCPクライアントでの設定例
+## MCP Client Configuration Examples
 
-### npxを使用する場合
+### Using npx
 
 ```json
 {
   "mcpServers": {
     "model-hub": {
       "command": "npx",
-      "args": ["model-hub-mcp"],
+      "args": ["@akiojin/model-hub-mcp"],
       "env": {
         "OPENAI_API_KEY": "your_openai_api_key",
         "ANTHROPIC_API_KEY": "your_anthropic_api_key",
@@ -105,7 +107,7 @@ npm run dev
 }
 ```
 
-### グローバルインストール後
+### After Global Installation
 
 ```json
 {
@@ -122,14 +124,14 @@ npm run dev
 }
 ```
 
-### ローカルインストール後
+### After Local Installation
 
 ```json
 {
   "mcpServers": {
     "model-hub": {
       "command": "node",
-      "args": ["node_modules/model-hub-mcp/dist/index.js"],
+      "args": ["node_modules/@akiojin/model-hub-mcp/dist/index.js"],
       "env": {
         "OPENAI_API_KEY": "your_openai_api_key",
         "ANTHROPIC_API_KEY": "your_anthropic_api_key",
@@ -140,6 +142,6 @@ npm run dev
 }
 ```
 
-## ライセンス
+## License
 
 MIT
