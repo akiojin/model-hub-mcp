@@ -1,11 +1,11 @@
 {
   "name": "@akiojin/model-hub-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for fetching AI models from OpenAI, Anthropic, and Google",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "model-hub-mcp": "dist/index.js"
+    "model-hub-mcp": "bin/model-hub-mcp"
   },
   "scripts": {
     "build": "tsc",
@@ -36,7 +36,9 @@
   },
   "files": [
     "dist/**/*",
+    "bin/**/*",
     "README.md",
+    "README.ja.md",
     "LICENSE"
   ]
 }
