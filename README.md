@@ -42,7 +42,7 @@ npm install @akiojin/model-hub-mcp
 cp .env.example .env
 ```
 
-2. Set API keys for each provider in the `.env` file:
+1. Set API keys for each provider in the `.env` file:
 
 ```bash
 OPENAI_API_KEY=your_openai_api_key_here
