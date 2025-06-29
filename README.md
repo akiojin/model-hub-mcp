@@ -37,12 +37,14 @@ npm install @akiojin/model-hub-mcp
 ## Configuration
 
 1. Copy `.env.example` to `.env`:
+
 ```bash
 cp .env.example .env
 ```
 
 2. Set API keys for each provider in the `.env` file:
-```
+
+```bash
 OPENAI_API_KEY=your_openai_api_key_here
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
 GOOGLE_API_KEY=your_google_api_key_here
@@ -53,6 +55,7 @@ Note: You can leave API keys empty for providers you don't plan to use.
 ## Build
 
 Compile TypeScript code:
+
 ```bash
 npm run build
 ```
@@ -66,19 +69,24 @@ See the "MCP Client Configuration Examples" section below for setup instructions
 ## Available Tools
 
 ### list_models
+
 Retrieve a list of available models from a specific provider.
 
 Parameters:
+
 - `provider`: "openai" | "anthropic" | "google"
 
 ### get_model
+
 Fetch detailed information about a specific model.
 
 Parameters:
+
 - `provider`: "openai" | "anthropic" | "google"
 - `model_id`: Model ID (e.g., "gpt-4", "claude-3-opus", "gemini-pro")
 
 ### list_all_models
+
 Batch fetch model information from all configured providers.
 
 ## MCP Client Configuration Examples
@@ -96,6 +104,7 @@ claude mcp add model-hub -s user \
 ```
 
 This command assumes you have environment variables set in your shell:
+
 - `$GEMINI_API_KEY` - Your Google AI API key
 - `$OPENAI_API_KEY` - Your OpenAI API key
 - `$ANTHROPIC_API_KEY` - Your Anthropic API key
@@ -117,7 +126,6 @@ This command assumes you have environment variables set in your shell:
   }
 }
 ```
-
 
 ## License
 
