@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "model-hub-mcp": "bin/model-hub-mcp"
+    "model-hub-mcp": "bin/model-hub-mcp.js"
   },
   "scripts": {
     "build": "tsc",
