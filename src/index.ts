@@ -237,10 +237,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Model Hub MCP server running on stdio');
+  // Remove console.error to avoid interfering with stdio communication
 }
 
-main().catch((error) => {
-  console.error('Fatal error:', error);
+main().catch(() => {
+  // Exit silently to avoid protocol interference
   process.exit(1);
 });
