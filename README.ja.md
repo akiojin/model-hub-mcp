@@ -59,15 +59,9 @@ npm run build
 
 ## 使用方法
 
-MCPサーバーとして起動：
-```bash
-npm start
-```
+このMCPサーバーは直接実行するものではありません。MCPクライアントの設定ファイルで設定する必要があります。
 
-開発モード（TypeScriptを直接実行）：
-```bash
-npm run dev
-```
+設定方法については、以下の「MCPクライアントでの設定例」セクションを参照してください。
 
 ## 利用可能なツール
 
@@ -89,6 +83,23 @@ npm run dev
 
 ## MCPクライアントでの設定例
 
+### Claude Code
+
+以下のコマンドを使用して、Claude CodeにこのMCPサーバーを簡単に追加できます：
+
+```bash
+claude mcp add model-hub -s user \
+  -e GOOGLE_API_KEY=$GEMINI_API_KEY \
+  -e OPENAI_API_KEY=$OPENAI_API_KEY \
+  -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
+  -- npx -y @akiojin/model-hub-mcp
+```
+
+このコマンドは、シェルに以下の環境変数が設定されていることを前提としています：
+- `$GEMINI_API_KEY` - Google AIのAPIキー
+- `$OPENAI_API_KEY` - OpenAIのAPIキー
+- `$ANTHROPIC_API_KEY` - AnthropicのAPIキー
+
 ### npxを使用する場合
 
 ```json
@@ -107,40 +118,6 @@ npm run dev
 }
 ```
 
-### グローバルインストール後
-
-```json
-{
-  "mcpServers": {
-    "model-hub": {
-      "command": "model-hub-mcp",
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key",
-        "ANTHROPIC_API_KEY": "your_anthropic_api_key",
-        "GOOGLE_API_KEY": "your_google_api_key"
-      }
-    }
-  }
-}
-```
-
-### ローカルインストール後
-
-```json
-{
-  "mcpServers": {
-    "model-hub": {
-      "command": "node",
-      "args": ["node_modules/@akiojin/model-hub-mcp/dist/index.js"],
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key",
-        "ANTHROPIC_API_KEY": "your_anthropic_api_key",
-        "GOOGLE_API_KEY": "your_google_api_key"
-      }
-    }
-  }
-}
-```
 
 ## ライセンス
 

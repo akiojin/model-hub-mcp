@@ -59,15 +59,9 @@ npm run build
 
 ## Usage
 
-Start as MCP server:
-```bash
-npm start
-```
+This MCP server is not meant to be run directly. It should be configured in your MCP client configuration.
 
-Development mode (run TypeScript directly):
-```bash
-npm run dev
-```
+See the "MCP Client Configuration Examples" section below for setup instructions.
 
 ## Available Tools
 
@@ -89,6 +83,23 @@ Batch fetch model information from all configured providers.
 
 ## MCP Client Configuration Examples
 
+### Claude Code
+
+You can easily add this MCP server to Claude Code using the following command:
+
+```bash
+claude mcp add model-hub -s user \
+  -e GOOGLE_API_KEY=$GEMINI_API_KEY \
+  -e OPENAI_API_KEY=$OPENAI_API_KEY \
+  -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
+  -- npx -y @akiojin/model-hub-mcp
+```
+
+This command assumes you have environment variables set in your shell:
+- `$GEMINI_API_KEY` - Your Google AI API key
+- `$OPENAI_API_KEY` - Your OpenAI API key
+- `$ANTHROPIC_API_KEY` - Your Anthropic API key
+
 ### Using npx
 
 ```json
@@ -107,40 +118,6 @@ Batch fetch model information from all configured providers.
 }
 ```
 
-### After Global Installation
-
-```json
-{
-  "mcpServers": {
-    "model-hub": {
-      "command": "model-hub-mcp",
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key",
-        "ANTHROPIC_API_KEY": "your_anthropic_api_key",
-        "GOOGLE_API_KEY": "your_google_api_key"
-      }
-    }
-  }
-}
-```
-
-### After Local Installation
-
-```json
-{
-  "mcpServers": {
-    "model-hub": {
-      "command": "node",
-      "args": ["node_modules/@akiojin/model-hub-mcp/dist/index.js"],
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key",
-        "ANTHROPIC_API_KEY": "your_anthropic_api_key",
-        "GOOGLE_API_KEY": "your_google_api_key"
-      }
-    }
-  }
-}
-```
 
 ## License
 
