@@ -4,6 +4,10 @@
 
 An MCP (Model Context Protocol) server that fetches AI model information from OpenAI, Anthropic, and Google.
 
+<a href="https://glama.ai/mcp/servers/@akiojin/model-hub-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@akiojin/model-hub-mcp/badge" alt="Model Hub MCP server" />
+</a>
+
 ## Features
 
 - **Multi-provider Support**: Supports three providers - OpenAI, Anthropic, and Google AI
